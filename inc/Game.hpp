@@ -4,6 +4,7 @@
 #include <iostream>
 #include <thread>
 #include <Circle.hpp>
+#include <Bullet.hpp>
 
 namespace mt
 {
