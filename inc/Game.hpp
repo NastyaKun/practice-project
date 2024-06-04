@@ -36,9 +36,9 @@ namespace mt
 			// Создание окна
 			m_window.create(sf::VideoMode(m_width, m_height), m_capture);
 			// Создание текстуры фона
-			if (!m_textureBackground.loadFromFile("assets\\background2.jpg"))
+			if (!m_textureBackground.loadFromFile("assets\\sky.jpg"))
 			{
-				std::cout << "Error while loading background.jpg" << std::endl;
+				std::cout << "Error while loading sky.jpg" << std::endl;
 				return false;
 			}
 			m_spriteBackground.setTexture(m_textureBackground);
