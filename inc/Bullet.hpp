@@ -37,7 +37,7 @@ namespace mt
       */
       
 			//NEW
-      int color_RED = 255;
+                        int color_RED = 255;
 			int color_GREEN = 0;
 			int color_PINK = 0;
 			int color_YELLOW = 0;
