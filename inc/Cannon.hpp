@@ -36,7 +36,7 @@ namespace mt
 				return false;
 			}
 			m_spriteShip.setTexture(m_textureShip);
-			m_spriteShip.setScale(0.9f, 0.9f);
+			m_spriteShip.setScale(0.4f, 0.4f);     //Размеры пушки
 			m_spriteShip.setOrigin(m_textureShip.getSize().x / 2, m_textureShip.getSize().y / 2);
 			m_spriteShip.setPosition(m_x, m_y);
 			m_spriteShip.setRotation(m_alpha);
