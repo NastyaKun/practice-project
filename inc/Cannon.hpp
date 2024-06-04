@@ -30,9 +30,9 @@ namespace mt
 			m_v = 0;
 
 
-			if (!m_textureShip.loadFromFile("assets\\cannon.png"))
+			if (!m_textureShip.loadFromFile("assets\\ship_1.png"))
 			{
-				std::cout << "Error while loading cannon.png" << std::endl;
+				std::cout << "Error while loading ship_1.png" << std::endl;
 				return false;
 			}
 			m_spriteShip.setTexture(m_textureShip);
