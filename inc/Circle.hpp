@@ -1,23 +1,27 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+#define RED 0
+#define GREEN 1
+#define PINK 2
+#define YELLOW 3
+#define BLUE 4
+#define PURPLE 5
+#define ORANGE 6
+#define AQUA 7
+#define LIGHTPINKI 8
+#define LIGTHGREEN 9
+
 namespace mt
 {
-
 	class Circle
 	{
 		float m_r;
 		float m_x, m_y;
 		sf::CircleShape m_shape;
-
 	public:
 		Circle() = default;
-
-		Circle(float x, float y, float r)
-		{
-			Setup(x, y, r);
-		}
-
+		Circle(float x, float y, float r) { Setup(x, y, r); }
 		void Setup(float x, float y, float r)
 		{
 			m_x = x;
@@ -26,16 +30,26 @@ namespace mt
 			m_shape.setOrigin(m_r, m_r);
 			m_shape.setRadius(m_r);
 			m_shape.setPosition(m_x, m_y);
-			int color_r = rand() % 256;
-			int color_g = rand() % 256;
-			int color_b = rand() % 256;
-			m_shape.setFillColor(sf::Color::Color(color_r, color_b, color_g, 50));
+			m_shape.setFillColor(getRandomColor());
 		}
-
-		sf::CircleShape Get()
+		sf::CircleShape Get() { return m_shape; }
+		static sf::Color getRandomColor()
 		{
-			return m_shape;
+			int d = rand() % 10;
+
+			switch (d)
+			{
+			case RED: return sf::Color::Color(255, 0, 0);
+			case GREEN: return sf::Color::Color(0, 255, 0);
+			case PINK: return sf::Color::Color(255, 20, 147);
+			case YELLOW: return sf::Color::Color(255, 255, 0);
+			case BLUE: return sf::Color::Color(0, 0, 255);
+			case PURPLE: return sf::Color::Color(75, 0, 130);
+			case ORANGE: return sf::Color::Color(255, 140, 0);
+			case AQUA: return sf::Color::Color(0, 255, 255);
+			case LIGHTPINKI: return sf::Color::Color(255, 182, 193);
+			case LIGTHGREEN: return sf::Color::Color(144, 238, 144);
+			}
 		}
 	};
-
 }
