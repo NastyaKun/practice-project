@@ -1,6 +1,7 @@
 ﻿#include <SFML/Graphics.hpp>
 #include <Circle.hpp>
 #include <Game.hpp>
+#include <Bullet.hpp>
 
 
 int main()
