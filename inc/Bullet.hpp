@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <Circle.hpp>
 
 namespace mt
 {
@@ -30,14 +31,9 @@ namespace mt
 			m_shape.setOrigin(m_r, m_r);
 			m_shape.setRadius(m_r);
 			m_shape.setPosition(m_x, m_y);
-      /*
-			int color_r = 255;
-			int color_g = 0;
-			int color_b = 0;
-      */
       
 			//NEW
-                        int color_RED = 255;
+            int color_RED = 255;
 			int color_GREEN = 0;
 			int color_PINK = 0;
 			int color_YELLOW = 0;
@@ -51,7 +47,9 @@ namespace mt
 
 			//m_shape.setFillColor(sf::Color::Color(color_r, color_b, color_g, 255));
 
-			m_shape.setFillColor(sf::Color::Color(color_RED, color_GREEN, color_PINK, color_YELLOW, color_BLUE, color_PURPLE, color_ORANGE, color_AQUA, color_LIGHTPINKI, color_LIGHTGREEN, 255));
+			m_shape.setFillColor(Circle::getRandomColor());
+			
+			//m_shape.setFillColor(sf::Color::Color(color_RED, color_GREEN, color_PINK, color_YELLOW, color_BLUE, color_PURPLE, color_ORANGE, color_AQUA, color_LIGHTPINKI, color_LIGHTGREEN, 255));
 		}
 
 		sf::CircleShape Get()
