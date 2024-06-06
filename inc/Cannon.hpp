@@ -37,7 +37,7 @@ namespace mt
 			}
 			m_spriteShip.setTexture(m_textureShip);
 			m_spriteShip.setScale(0.4f, 0.4f);     //Размеры пушки
-			m_spriteShip.setOrigin(m_textureShip.getSize().x / 2, m_textureShip.getSize().y / 2);
+			m_spriteShip.setOrigin(m_textureShip.getSize().x / 2, m_textureShip.getSize().y);
 			m_spriteShip.setPosition(m_x, m_y);
 			m_spriteShip.setRotation(m_alpha);
 		}
@@ -58,6 +58,9 @@ namespace mt
 		void Rotate(float dalpha)
 		{
 			m_alpha += dalpha;
+			// Ограничение угла вращения, например, в пределах от - 45 до 45 градусов
+			if (m_alpha < -40) m_alpha = -40;
+			if (m_alpha > 40) m_alpha = 40;
 			m_spriteShip.setRotation(m_alpha);
 		}
 
