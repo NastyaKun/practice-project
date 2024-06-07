@@ -46,13 +46,13 @@ namespace mt
 			int color_LIGHTGREEN = 0;
 
 
-			//m_shape.setFillColor(sf::Color::Color(color_r, color_b, color_g, 255));
+			
 
 			int d = rand() % 10;
                         m_color = d;
                         m_shape.setFillColor(Circle::getColor(d));
 			
-			//m_shape.setFillColor(sf::Color::Color(color_RED, color_GREEN, color_PINK, color_YELLOW, color_BLUE, color_PURPLE, color_ORANGE, color_AQUA, color_LIGHTPINKI, color_LIGHTGREEN, 255));
+			
 		}
 
 		sf::CircleShape Get()
