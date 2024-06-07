@@ -12,6 +12,7 @@ namespace mt
 		float m_vx, m_vy;
 		sf::CircleShape m_shape;
 		bool m_available = false;
+                int m_color;
 
 	public:
 		Bullet() = default;
@@ -33,7 +34,7 @@ namespace mt
 			m_shape.setPosition(m_x, m_y);
       
 			//NEW
-            int color_RED = 255;
+                        int color_RED = 255;
 			int color_GREEN = 0;
 			int color_PINK = 0;
 			int color_YELLOW = 0;
@@ -47,7 +48,9 @@ namespace mt
 
 			//m_shape.setFillColor(sf::Color::Color(color_r, color_b, color_g, 255));
 
-			m_shape.setFillColor(Circle::getRandomColor());
+			int d = rand() % 10;
+                        m_color = d;
+                        m_shape.setFillColor(Circle::getColor(d));
 			
 			//m_shape.setFillColor(sf::Color::Color(color_RED, color_GREEN, color_PINK, color_YELLOW, color_BLUE, color_PURPLE, color_ORANGE, color_AQUA, color_LIGHTPINKI, color_LIGHTGREEN, 255));
 		}
@@ -57,13 +60,28 @@ namespace mt
 			return m_shape;
 		}
 
-		float X() { return m_x; }
+				float X() { return m_x; }
 		void X(float value) { m_x = value; m_shape.setPosition(m_x, m_y); }
 		void Y(float value) { m_y = value; m_shape.setPosition(m_x, m_y); }
 		float Y() { return m_y; }
 		float R() { return m_r; }
 		float Vx() { return m_vx; }
 		float Vy() { return m_vy; }
+		void Vx(float vx) { m_vx = vx; }
+		void Vy(float vy) { m_vy = vy; }
+		int getColor() { return m_color; }
+		void setRandomColor()
+		{
+			int d = rand() % 10;
+			m_color = d;
+			m_shape.setFillColor(Circle::getColor(d));
+		}
+
+		void Alfa(float alfa)
+		{
+			m_vx = 10 * cos(alfa);
+			m_vy = 10 * sin(alfa);
+		}
 
 		void Move(float dt)
 		{
