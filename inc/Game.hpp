@@ -26,7 +26,7 @@ namespace mt
 		std::string m_capture;
 		mt::Circle* m_c;
 		mt::Bullet m_b;
-        sf::RenderWindow m_window;
+		sf::RenderWindow m_window;
 		sf::Texture m_textureBackground;
 		sf::Sprite m_spriteBackground;
 		sf::Font m_font;
@@ -66,7 +66,7 @@ namespace mt
 			if (!m_cannon.Setup(500, 850))  //Расположение пушки
 				return false;
 
-			
+
 			srand(time(0));
 
 			m_c = new mt::Circle[m_n];
@@ -83,7 +83,7 @@ namespace mt
 				int row = i / circlesPerRow; // Текущая строка
 				int col = i % circlesPerRow; // Текущий столбец в строке
 
-				
+
 
 				float x = startX + col * (2 * circleRadius + distanceBetweenCircles); // Позиция X для шарика
 				float y = startY + row * (2 * circleRadius + distanceBetweenCircles); // Позиция Y для шарика
@@ -91,18 +91,18 @@ namespace mt
 
 				m_table[col][row].isEmpty = false;
 				m_table[col][row].isAttachable = false;
-				m_table[col][row].m_c.Setup(x,y,circleRadius);
+				m_table[col][row].m_c.Setup(x, y, circleRadius);
 			}
 
-			for(int i=0;i<10;i++)
+			for (int i = 0; i < 10; i++)
 				for (int j = 0; j < 16; j++)
 				{
 					m_table[j][i].m_x = startX + j * (2 * circleRadius + distanceBetweenCircles);
 					m_table[j][i].m_y = startY + i * (2 * circleRadius + distanceBetweenCircles);
-					
+					//std::cout << m_table[j][i].m_x << " " << m_table[j][i].m_y << " " << m_table[j][i].isEmpty << std::endl;
 				}
 
-			
+
 			for (int i = 0; i < 16; i++)
 			{
 				for (int j = 0; j < 10; j++)
@@ -114,7 +114,9 @@ namespace mt
 					}
 			}
 		}
-		
+
+
+
 		void LifeCycle()
 		{
 			sf::Clock clock;
@@ -127,25 +129,36 @@ namespace mt
 				{
 					if (event.type == sf::Event::Closed)
 						m_window.close();
-					
+
 					//Управление пушкой с клавиатуры, поворот в стороны, для выбора траектории
-					
+
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-				      {
-					          m_cannon.Rotate(-1);
-				      }
+					{
+						m_cannon.Rotate(-1);
+					}
 
-				    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-				      {
-					          m_cannon.Rotate(1);
-				      }
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+					{
+						m_cannon.Rotate(1);
+					}
 
-					
+
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 					{
+
 						m_cannon.Attack();
+
+						/*m_cannon.Attack();
+						float m_v = m_cannon.V();
+						float m_x = m_cannon.X();
+						float m_y = m_cannon.Y();
+						float m_alpha = m_cannon.Alpha();
+						float m_v_bullet = 200;
+						float alphaRad = acos(-1) * m_alpha / 180;
+						m_b.Setup(m_x, m_y, m_bulletR, (m_v + m_v_bullet) * cos(alphaRad), (m_v + m_v_bullet) * sin(alphaRad));
+						bullet.push_back(m_b);*/
 					}
-					
+
 				}
 
 				// Логика
@@ -163,8 +176,10 @@ namespace mt
 							int by = m_cannon.BulletY();
 							int px = m_table[i][j].m_x;
 							int py = m_table[i][j].m_y;
-							
-							if ((bx - px) * (bx - px) + (by - py) * (by - py) <= 30*30)
+
+							//std::cout << (bx - px) * (bx - px) + (by - py) * (by - py) << std::endl;
+
+							if ((bx - px) * (bx - px) + (by - py) * (by - py) <= 30 * 30)
 							{
 								m_table[i][j].isAttachable = false;
 								m_table[i][j].isEmpty = false;
@@ -173,8 +188,8 @@ namespace mt
 								m_cannon.BulletReset();
 								std::cout << "reset" << std::endl;
 
-								
-								m_table[i][j+1].isAttachable = true;
+
+								m_table[i][j + 1].isAttachable = true;
 							}
 						}
 				}
@@ -185,23 +200,41 @@ namespace mt
 				m_window.draw(m_spriteBackground);
 				m_window.draw(m_cannon.Get());   //Отрисовка пушки
 				m_window.draw(m_fpsText);
-				
-				for(int i=0;i<10;i++)
+
+				for (int i = 0; i < 10; i++)
 					for (int j = 0; j < 16; j++)
 					{
 						if (m_table[j][i].isEmpty)
 						{
 							m_table[j][i].m_circle = sf::CircleShape(10);
 							m_table[j][i].m_circle.setOrigin(10, 10); //Количество снарядов..?
-							
+							/*if (m_table[j][i].isAttachable)
+							{
+								m_table[j][i].m_circle.setFillColor(sf::Color::Red);
+							}
+							m_table[j][i].m_circle.setPosition(m_table[j][i].m_x, m_table[j][i].m_y);
+							m_window.draw(m_table[j][i].m_circle);*/
 						}
 						else
 						{
+							/*m_table[j][i].m_circle = sf::CircleShape(10);
+							m_table[j][i].m_circle.setOrigin(5, 5);
+							m_table[j][i].m_circle.setFillColor(sf::Color::Green);
+							m_table[j][i].m_circle.setPosition(m_table[j][i].m_x, m_table[j][i].m_y);*/
 							m_window.draw(m_table[j][i].m_c.Get());
 						}
 					}
 
-				
+				//for (int i = 0; i < m_n; i++)
+				//	m_window.draw(m_c[i].Get());
+				//
+				/*if (m_cannon.BulletAvailable())
+					for (int i = 0; i < bullet.size(); i++)
+						m_window.draw(bullet[i].Get());
+				if (isVisible)
+					m_window.draw(m_cannon.Get());*/
+
+					//std::cout << m_cannon.BulletAvailable() << std::endl;
 				if (m_cannon.BulletAvailable())
 					m_window.draw(m_cannon.GetBullet());
 

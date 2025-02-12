@@ -33,10 +33,11 @@ namespace mt
 			m_shape.setFillColor(getRandomColor());
 		}
 
-                void setColor(int color)
-                {
-	                m_shape.setFillColor(getColor(color));
-                }
+		void setColor(int color)
+		{
+			m_shape.setFillColor(getColor(color));
+		}
+
 
 		sf::CircleShape Get() { return m_shape; }
 		static sf::Color getRandomColor()
@@ -45,47 +46,42 @@ namespace mt
 
 			switch (d)
 			{
-			case RED: return sf::Color::Color(255, 0, 0);
-			case GREEN: return sf::Color::Color(0, 255, 0);
-			case PINK: return sf::Color::Color(255, 20, 147);
-			case YELLOW: return sf::Color::Color(255, 255, 0);
-			case BLUE: return sf::Color::Color(0, 0, 255);
-			case PURPLE: return sf::Color::Color(75, 0, 130);
-			case ORANGE: return sf::Color::Color(255, 140, 0);
-			case AQUA: return sf::Color::Color(0, 255, 255);
-			case LIGHTPINKI: return sf::Color::Color(255, 182, 193);
-			case LIGTHGREEN: return sf::Color::Color(144, 238, 144);
+				case RED: return sf::Color::Color(255, 0, 0);
+				case GREEN: return sf::Color::Color(0, 255, 0);
+				case PINK: return sf::Color::Color(255, 20, 147);
+				case YELLOW: return sf::Color::Color(255, 255, 0);
+				case BLUE: return sf::Color::Color(0, 0, 255);
+				case PURPLE: return sf::Color::Color(75, 0, 130);
+				case ORANGE: return sf::Color::Color(255, 140, 0);
+				case AQUA: return sf::Color::Color(0, 255, 255);
+				case LIGHTPINKI: return sf::Color::Color(255, 182, 193);
+				case LIGTHGREEN: return sf::Color::Color(144, 238, 144);
 			}
 		}
-                 		static sf::Color getColor(int d)
 
-			
+        static sf::Color getColor(int d)	
 		{
 
 			switch (d)
 			{
-			case RED: return sf::Color::Color(255, 0, 0);        //Задание цветов шариков
-
-			case GREEN: return sf::Color::Color(0, 255, 0);
-
-			case PINK: return sf::Color::Color(255, 20, 147);
-
-			case YELLOW: return sf::Color::Color(255, 255, 0);
-
-			case BLUE: return sf::Color::Color(0, 0, 255);
-
-			case PURPLE: return sf::Color::Color(75, 0, 130);
-
-			case ORANGE: return sf::Color::Color(255, 140, 0);
-
-			case AQUA: return sf::Color::Color(0, 255, 255);
-
-			case LIGHTPINKI: return sf::Color::Color(255, 182, 193);
-
-			case LIGTHGREEN: return sf::Color::Color(144, 238, 144);
+				case RED: return sf::Color::Color(255, 0, 0);        //Задание цветов шариков
+				case GREEN: return sf::Color::Color(0, 255, 0);
+				case PINK: return sf::Color::Color(255, 20, 147);
+				case YELLOW: return sf::Color::Color(255, 255, 0);
+				case BLUE: return sf::Color::Color(0, 0, 255);
+				case PURPLE: return sf::Color::Color(75, 0, 130);
+				case ORANGE: return sf::Color::Color(255, 140, 0);
+				case AQUA: return sf::Color::Color(0, 255, 255);
+				case LIGHTPINKI: return sf::Color::Color(255, 182, 193);
+				case LIGTHGREEN: return sf::Color::Color(144, 238, 144);
 			}
 		}
 
+		//!!!!!!!
+		sf::Color gColor() const
+		{
+			return m_shape.getFillColor();
+		}
 
 	};
 

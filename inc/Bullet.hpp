@@ -12,7 +12,7 @@ namespace mt
 		float m_vx, m_vy;
 		sf::CircleShape m_shape;
 		bool m_available = false;
-                int m_color;
+        int m_color;
 
 	public:
 		Bullet() = default;
@@ -34,7 +34,7 @@ namespace mt
 			m_shape.setPosition(m_x, m_y);
       
 			//NEW
-                        int color_RED = 255;
+            int color_RED = 255;
 			int color_GREEN = 0;
 			int color_PINK = 0;
 			int color_YELLOW = 0;
@@ -49,8 +49,8 @@ namespace mt
 			
 
 			int d = rand() % 10;
-                        m_color = d;
-                        m_shape.setFillColor(Circle::getColor(d));
+            m_color = d;
+            m_shape.setFillColor(Circle::getColor(d));
 			
 			
 		}
@@ -98,8 +98,7 @@ namespace mt
 		bool Available() { return m_available; }
 
 		void Available(bool value) { m_available = value; }
-		~Bullet() {
-		};
+		~Bullet() {};
 	};
 
 }

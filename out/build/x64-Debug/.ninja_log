@@ -1,0 +1,13 @@
+# ninja log v5
+21	771	7395472363655492	CMakeFiles/sfml_sample.dir/src/Game.cpp.obj	edb0c982794967d2
+32	809	7395472363474188	CMakeFiles/sfml_sample.dir/src/Circle.cpp.obj	ff82f2fd6eefcedc
+13	1592	7395472771512489	CMakeFiles/sfml_sample.dir/main.cpp.obj	92399c8eecab46d8
+1597	4565	7395472799676450	sfml_sample.exe	8f900a5e3febaa2
+6	3113	7398109782059386	CMakeFiles/sfml_sample.dir/main.cpp.obj	92399c8eecab46d8
+3114	4861	7398109796343737	sfml_sample.exe	8f900a5e3febaa2
+5	1802	7398111380713844	CMakeFiles/sfml_sample.dir/main.cpp.obj	92399c8eecab46d8
+1803	3158	7398111393741387	sfml_sample.exe	8f900a5e3febaa2
+5	2056	7398111560036121	CMakeFiles/sfml_sample.dir/main.cpp.obj	92399c8eecab46d8
+2062	2802	7398111567543517	sfml_sample.exe	8f900a5e3febaa2
+5	1695	7398112622780974	CMakeFiles/sfml_sample.dir/main.cpp.obj	92399c8eecab46d8
+1696	2981	7398112634839956	sfml_sample.exe	8f900a5e3febaa2

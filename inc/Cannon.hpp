@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <Bullet.hpp>
 
 namespace mt
 {
@@ -8,14 +9,14 @@ namespace mt
 	class Cannon
 	{
 		float m_x, m_y;
-                float m_alpha;
-                float m_v;
-                float m_v_bullet = 200;
-                float m_r;
-                sf::Texture m_textureShip;
-                sf::Sprite m_spriteShip;
-                const int m_bulletR = 30;
-                Bullet bullet;
+        float m_alpha;
+        float m_v;
+        float m_v_bullet = 200;
+        float m_r;
+        sf::Texture m_textureShip;
+        sf::Sprite m_spriteShip;
+        const int m_bulletR = 30;
+        Bullet bullet;
 
 	public:
 		Cannon() = default;
@@ -58,15 +59,15 @@ namespace mt
 			m_y += m_v * sin(alphaRad);
 			m_spriteShip.setPosition(m_x, m_y);
 		}
-                float R() { return m_r; }
-                float X() { return m_x; }
-                float Y() { return m_y; }
-                float V() { return m_v; }
+        float R() { return m_r; }
+        float X() { return m_x; }
+        float Y() { return m_y; }
+        float V() { return m_v; }
 
-             int getBulletColor()
-              {
-	          return bullet.getColor();
-              }
+        int getBulletColor()
+        {
+	         return bullet.getColor();
+        }
 
 		void Rotate(float dalpha)
 		{
@@ -77,7 +78,7 @@ namespace mt
 			m_spriteShip.setRotation(m_alpha);
 		}
 
-				void Attack()
+		void Attack()
 		{
 			float alphaRad = acos(-1) * (m_alpha-90) / 180;
 			bullet.Alfa(alphaRad);
